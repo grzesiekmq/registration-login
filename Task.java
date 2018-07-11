@@ -8,30 +8,6 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Login {
-    public void login() {
-        System.out.printf("LOGOWANIE %s %n", getProvideUser());
-        username = scanner.nextLine();
-        setUsername(username);
-
-        System.out.printf("Hasło: %s %n", getPassword());
-    }
-}
-
-class Account {
-    private String newEmail, newTel;
-
-    public void showAccount() {
-        System.out.printf("KONTO %n %s %n Witaj %s %n", getUsername());
-        System.out.println("Zmiana adresu email");
-        newEmail = scanner.nextLine();
-        System.out.printf("Nowy adres email: %s %n Zmiana nr telefonu %n", newEmail);
-
-        newTel = scanner.nextLine();
-        System.out.printf("Nowy nr telefonu: %s %n", newTel);
-    }
-}
-
 class Register {
     private String username, password, email, tel;
 
@@ -84,16 +60,16 @@ class Register {
     password = generator.generate();
 
     public void register() {
-        System.out.printf("REJESTRACJA %n %s %n", getProvideUser());
+        System.out.printf("REJESTRACJA %n %s %n", provideUser);
         username = scanner.nextLine();
         setUsername(username);
 
-        Matcher userMatcher = pUser.matcher(getUsername());
+        Matcher userMatcher = pUser.matcher(username);
 
         if (userMatcher.find())
 
         {
-            System.out.printf("Nazwa użytkownika: %s %n", getUsername());
+            System.out.printf("Nazwa użytkownika: %s %n", username);
         } else
 
         {
@@ -130,6 +106,31 @@ class Register {
 
 
 }
+
+class Login {
+    public void login() {
+        System.out.printf("LOGOWANIE %s %n", getProvideUser());
+        username = scanner.nextLine();
+        setUsername(username);
+
+        System.out.printf("Hasło: %s %n", getPassword());
+    }
+}
+
+class Account {
+    private String newEmail, newTel;
+
+    public void showAccount() {
+        System.out.printf("KONTO %n %s %n Witaj %s %n", getUsername());
+        System.out.println("Zmiana adresu email");
+        newEmail = scanner.nextLine();
+        System.out.printf("Nowy adres email: %s %n Zmiana nr telefonu %n", newEmail);
+
+        newTel = scanner.nextLine();
+        System.out.printf("Nowy nr telefonu: %s %n", newTel);
+    }
+}
+
 
 public class Task {
 
